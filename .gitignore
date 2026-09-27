@@ -1,0 +1,5 @@
+# Course materials from the professors (not redistributed)
+*.pdf
+*.ppt
+*.pptx
+node_modules/

@@ -1,0 +1,1974 @@
+{
+ "s1e01": {
+  "id": "s1e01",
+  "level": 1,
+  "type": "num",
+  "answer": "0",
+  "verify": {
+   "kind": "int",
+   "f": "x^3-3*x+1",
+   "v": "x",
+   "a": "2",
+   "b": "2"
+  }
+ },
+ "s1e02": {
+  "id": "s1e02",
+  "level": 1,
+  "type": "num",
+  "answer": "20",
+  "verify": {
+   "kind": "int",
+   "f": "4",
+   "v": "x",
+   "a": "0",
+   "b": "5"
+  }
+ },
+ "s1e03": {
+  "id": "s1e03",
+  "level": 1,
+  "type": "num",
+  "answer": "-7"
+ },
+ "s1e04": {
+  "id": "s1e04",
+  "level": 1,
+  "type": "num",
+  "answer": "4",
+  "verify": {
+   "kind": "int",
+   "f": "x/2",
+   "v": "x",
+   "a": "0",
+   "b": "4"
+  }
+ },
+ "s1e05": {
+  "id": "s1e05",
+  "level": 1,
+  "type": "num",
+  "answer": "1",
+  "verify": {
+   "kind": "int",
+   "f": "sin(x)",
+   "v": "x",
+   "a": "0",
+   "b": "pi/2"
+  }
+ },
+ "s1e06": {
+  "id": "s1e06",
+  "level": 2,
+  "type": "num",
+  "answer": "14"
+ },
+ "s1e07": {
+  "id": "s1e07",
+  "level": 2,
+  "type": "num",
+  "answer": "30"
+ },
+ "s1e08": {
+  "id": "s1e08",
+  "level": 2,
+  "type": "num",
+  "answer": "0",
+  "verify": {
+   "kind": "int",
+   "f": "x^5",
+   "v": "x",
+   "a": "-3",
+   "b": "3"
+  }
+ },
+ "s1e09": {
+  "id": "s1e09",
+  "level": 2,
+  "type": "num",
+  "answer": "2*pi",
+  "verify": {
+   "kind": "int",
+   "f": "sqrt(4-x^2)",
+   "v": "x",
+   "a": "-2",
+   "b": "2"
+  }
+ },
+ "s1e10": {
+  "id": "s1e10",
+  "level": 2,
+  "type": "num",
+  "answer": "4",
+  "verify": {
+   "kind": "int",
+   "f": "3-x",
+   "v": "x",
+   "a": "0",
+   "b": "4"
+  }
+ },
+ "s1e11": {
+  "id": "s1e11",
+  "level": 2,
+  "type": "set",
+  "answer": [
+   "2",
+   "18"
+  ]
+ },
+ "s1e12": {
+  "id": "s1e12",
+  "level": 2,
+  "type": "func",
+  "ref": "sqrt(x^2+5)",
+  "v": "x"
+ },
+ "s1e13": {
+  "id": "s1e13",
+  "level": 2,
+  "type": "num",
+  "answer": "10",
+  "verify": {
+   "kind": "int",
+   "f": "3*x^2-4*x+5",
+   "v": "x",
+   "a": "0",
+   "b": "2"
+  }
+ },
+ "s1e14": {
+  "id": "s1e14",
+  "level": 2,
+  "type": "num",
+  "answer": "1",
+  "verify": {
+   "kind": "int",
+   "f": "1/x",
+   "v": "x",
+   "a": "1",
+   "b": "e"
+  }
+ },
+ "s1e15": {
+  "id": "s1e15",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "\\(\\displaystyle\\int_{-3}^{3} x^2\\cos x\\,dx\\)",
+   "\\(\\displaystyle\\int_{-3}^{3} x\\operatorname{sen} x\\,dx\\)",
+   "\\(\\displaystyle\\int_{-3}^{3} x^3\\cos x\\,dx\\)",
+   "\\(\\displaystyle\\int_{-3}^{3} \\cos x\\,dx\\)"
+  ],
+  "correct": 2
+ },
+ "s1e16": {
+  "id": "s1e16",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "\\(\\displaystyle\\int_a^b f(x)\\,dx \\ge \\int_a^b g(x)\\,dx\\)",
+   "\\(\\displaystyle\\int_a^b f(x)\\,dx = \\int_a^b g(x)\\,dx\\)",
+   "\\(\\displaystyle\\int_a^b f(x)\\,dx \\le \\int_a^b g(x)\\,dx\\)",
+   "No puede determinarse ninguna relación entre ambas integrales."
+  ],
+  "correct": 2
+ },
+ "s1e17": {
+  "id": "s1e17",
+  "level": 3,
+  "type": "num",
+  "answer": "9",
+  "verify": {
+   "kind": "int",
+   "f": "abs(x-3)",
+   "v": "x",
+   "a": "0",
+   "b": "6"
+  }
+ },
+ "s1e18": {
+  "id": "s1e18",
+  "level": 3,
+  "type": "num",
+  "answer": "6"
+ },
+ "s1e19": {
+  "id": "s1e19",
+  "level": 3,
+  "type": "num",
+  "answer": "1.0898",
+  "tol": 0.001
+ },
+ "s1e20": {
+  "id": "s1e20",
+  "level": 3,
+  "type": "num",
+  "answer": "2*sqrt(5)"
+ },
+ "s2e01": {
+  "id": "s2e01",
+  "level": 1,
+  "type": "anti",
+  "ref": "3*x^5/5 - x^4/8 + x^2/8 - 2*x",
+  "f": "3*x^4-1/2*x^3+1/4*x-2",
+  "v": "x"
+ },
+ "s2e02": {
+  "id": "s2e02",
+  "level": 1,
+  "type": "anti",
+  "ref": "x^3/3 - 4*sqrt(x)",
+  "f": "(x^3-2*sqrt(x))/x",
+  "v": "x"
+ },
+ "s2e03": {
+  "id": "s2e03",
+  "level": 1,
+  "type": "anti",
+  "ref": "-cot(t)-2*exp(t)",
+  "f": "csc(t)^2-2*exp(t)",
+  "v": "t"
+ },
+ "s2e04": {
+  "id": "s2e04",
+  "level": 1,
+  "type": "anti",
+  "ref": "tan(t)+sec(t)",
+  "f": "sec(t)*(sec(t)+tan(t))",
+  "v": "t"
+ },
+ "s2e05": {
+  "id": "s2e05",
+  "level": 2,
+  "type": "num",
+  "answer": "9/4 + 2*e - 2*e^4",
+  "verify": {
+   "kind": "int",
+   "f": "3/t^2-2*exp(t)",
+   "v": "t",
+   "a": "1",
+   "b": "4"
+  }
+ },
+ "s2e06": {
+  "id": "s2e06",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "Sustitución con \\(u=5x\\)",
+   "Integración por partes",
+   "Tabla directa, sin transformación previa",
+   "No existe una primitiva elemental"
+  ],
+  "correct": 1
+ },
+ "s2e07": {
+  "id": "s2e07",
+  "level": 1,
+  "type": "anti",
+  "ref": "2*x^(5/2)/5 + 3*x^(5/3)/5",
+  "f": "x^(3/2)+x^(2/3)",
+  "v": "x"
+ },
+ "s2e08": {
+  "id": "s2e08",
+  "level": 2,
+  "type": "anti",
+  "ref": "-cos(x^2)/2",
+  "f": "x*sin(x^2)",
+  "v": "x"
+ },
+ "s2e09": {
+  "id": "s2e09",
+  "level": 2,
+  "type": "anti",
+  "ref": "-(1-2*x)^10/20",
+  "f": "(1-2*x)^9",
+  "v": "x"
+ },
+ "s2e10": {
+  "id": "s2e10",
+  "level": 2,
+  "type": "anti",
+  "ref": "(ln(x))^3/3",
+  "f": "(ln(x))^2/x",
+  "v": "x"
+ },
+ "s2e11": {
+  "id": "s2e11",
+  "level": 2,
+  "type": "anti",
+  "ref": "sin(exp(x))",
+  "f": "exp(x)*cos(exp(x))",
+  "v": "x"
+ },
+ "s2e12": {
+  "id": "s2e12",
+  "level": 2,
+  "type": "anti",
+  "ref": "(2+x^4)^6/24",
+  "f": "x^3*(2+x^4)^5",
+  "v": "x"
+ },
+ "s2e13": {
+  "id": "s2e13",
+  "level": 2,
+  "type": "num",
+  "answer": "2",
+  "verify": {
+   "kind": "int",
+   "f": "1/(x*sqrt(ln(x)))",
+   "v": "x",
+   "a": "e",
+   "b": "e^4"
+  }
+ },
+ "s2e14": {
+  "id": "s2e14",
+  "level": 2,
+  "type": "anti",
+  "ref": "exp(t)*(t-1)",
+  "f": "t*exp(t)",
+  "v": "t"
+ },
+ "s2e15": {
+  "id": "s2e15",
+  "level": 2,
+  "type": "anti",
+  "ref": "x*sin(5*x)/5 + cos(5*x)/25",
+  "f": "x*cos(5*x)",
+  "v": "x"
+ },
+ "s2e16": {
+  "id": "s2e16",
+  "level": 3,
+  "type": "anti",
+  "ref": "(x^2+2*x)*sin(x) + (2*x+2)*cos(x) - 2*sin(x)",
+  "f": "(x^2+2*x)*cos(x)",
+  "v": "x"
+ },
+ "s2e17": {
+  "id": "s2e17",
+  "level": 3,
+  "type": "anti",
+  "ref": "(exp(x)*sin(x)+exp(x)*cos(x))/2",
+  "f": "exp(x)*cos(x)",
+  "v": "x"
+ },
+ "s2e18": {
+  "id": "s2e18",
+  "level": 3,
+  "type": "anti",
+  "ref": "-((ln(x))^2 + ln(x) + 1/2)/(2*x^2)",
+  "f": "(ln(x))^2/x^3",
+  "v": "x"
+ },
+ "s2e19": {
+  "id": "s2e19",
+  "level": 3,
+  "type": "num",
+  "answer": "(4*sqrt(2)-1)/5",
+  "verify": {
+   "kind": "int",
+   "f": "x*(x^2+1)^(3/2)",
+   "v": "x",
+   "a": "0",
+   "b": "1"
+  }
+ },
+ "s2e20": {
+  "id": "s2e20",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "Identidad \\(\\operatorname{sen} 2x=2\\operatorname{sen} x\\cos x\\)",
+   "Identidad \\(\\operatorname{sen}^2 x=\\dfrac{1-\\cos2x}{2}\\)",
+   "Sustitución \\(u=\\operatorname{sen} x\\)",
+   "Integración por partes"
+  ],
+  "correct": 1
+ },
+ "s2e21": {
+  "id": "s2e21",
+  "level": 2,
+  "type": "anti",
+  "ref": "x/2 - sin(2*x)/4",
+  "f": "sin(x)^2",
+  "v": "x"
+ },
+ "s2e22": {
+  "id": "s2e22",
+  "level": 2,
+  "type": "anti",
+  "ref": "x/2 + sin(2*x)/4",
+  "f": "cos(x)^2",
+  "v": "x"
+ },
+ "s3e01": {
+  "id": "s3e01",
+  "level": 1,
+  "type": "num",
+  "answer": "21",
+  "tol": 0.001
+ },
+ "s3e02": {
+  "id": "s3e02",
+  "level": 1,
+  "type": "num",
+  "answer": "22",
+  "tol": 0.001
+ },
+ "s3e03": {
+  "id": "s3e03",
+  "level": 1,
+  "type": "num",
+  "answer": "64/3",
+  "tol": 0.001
+ },
+ "s3e04": {
+  "id": "s3e04",
+  "level": 1,
+  "type": "num",
+  "answer": "0.5",
+  "tol": 0.0005
+ },
+ "s3e05": {
+  "id": "s3e05",
+  "level": 1,
+  "type": "num",
+  "answer": "20.5",
+  "tol": 0.001
+ },
+ "s3e06": {
+  "id": "s3e06",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "Regla del punto medio",
+   "Regla de los trapecios",
+   "Regla de Simpson",
+   "Las tres exigen $n$ par"
+  ],
+  "correct": 2
+ },
+ "s3e07": {
+  "id": "s3e07",
+  "level": 2,
+  "type": "num",
+  "answer": "3.2203",
+  "tol": 0.002
+ },
+ "s3e08": {
+  "id": "s3e08",
+  "level": 2,
+  "type": "num",
+  "answer": "3.2833",
+  "tol": 0.002
+ },
+ "s3e09": {
+  "id": "s3e09",
+  "level": 2,
+  "type": "num",
+  "answer": "3.2396",
+  "tol": 0.002
+ },
+ "s3e10": {
+  "id": "s3e10",
+  "level": 2,
+  "type": "num",
+  "answer": "0.0281",
+  "tol": 0.0005
+ },
+ "s3e11": {
+  "id": "s3e11",
+  "level": 2,
+  "type": "num",
+  "answer": "0.027",
+  "tol": 0.0005
+ },
+ "s3e12": {
+  "id": "s3e12",
+  "level": 2,
+  "type": "num",
+  "answer": "0.0069",
+  "tol": 0.0005
+ },
+ "s3e13": {
+  "id": "s3e13",
+  "level": 2,
+  "type": "num",
+  "answer": "52",
+  "tol": 0.5
+ },
+ "s3e14": {
+  "id": "s3e14",
+  "level": 2,
+  "type": "num",
+  "answer": "10",
+  "tol": 0.5
+ },
+ "s3e15": {
+  "id": "s3e15",
+  "level": 2,
+  "type": "num",
+  "answer": "0.0089",
+  "tol": 0.0005
+ },
+ "s3e16": {
+  "id": "s3e16",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "Punto medio",
+   "Trapecios",
+   "Simpson",
+   "Las tres dan siempre el mismo error"
+  ],
+  "correct": 2
+ },
+ "s3e17": {
+  "id": "s3e17",
+  "level": 3,
+  "type": "num",
+  "answer": "7.3398",
+  "tol": 0.005
+ },
+ "s3e18": {
+  "id": "s3e18",
+  "level": 3,
+  "type": "num",
+  "answer": "128.6667",
+  "tol": 0.01
+ },
+ "s3e19": {
+  "id": "s3e19",
+  "level": 3,
+  "type": "num",
+  "answer": "0.00014",
+  "tol": 0.00003
+ },
+ "s3e20": {
+  "id": "s3e20",
+  "level": 3,
+  "type": "num",
+  "answer": "6",
+  "tol": 0.5
+ },
+ "s4e01": {
+  "id": "s4e01",
+  "level": 1,
+  "type": "num",
+  "answer": "32/3",
+  "verify": {
+   "kind": "int",
+   "f": "4-x^2",
+   "v": "x",
+   "a": "-2",
+   "b": "2"
+  }
+ },
+ "s4e02": {
+  "id": "s4e02",
+  "level": 1,
+  "type": "num",
+  "answer": "6.5",
+  "verify": {
+   "kind": "int",
+   "f": "abs(x)",
+   "v": "x",
+   "a": "-2",
+   "b": "3"
+  }
+ },
+ "s4e03": {
+  "id": "s4e03",
+  "level": 1,
+  "type": "num",
+  "answer": "1/6",
+  "verify": {
+   "kind": "int",
+   "f": "x-x^2",
+   "v": "x",
+   "a": "0",
+   "b": "1"
+  }
+ },
+ "s4e04": {
+  "id": "s4e04",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "El área bajo $f(x)$ únicamente",
+   "El área bajo $g(x)$ únicamente",
+   "El área de la región comprendida entre las dos curvas",
+   "El volumen del sólido entre las curvas"
+  ],
+  "correct": 2
+ },
+ "s4e05": {
+  "id": "s4e05",
+  "level": 1,
+  "type": "num",
+  "answer": "8*pi/3",
+  "verify": {
+   "kind": "int",
+   "f": "pi*x^2",
+   "v": "x",
+   "a": "0",
+   "b": "2"
+  }
+ },
+ "s4e06": {
+  "id": "s4e06",
+  "level": 1,
+  "type": "num",
+  "answer": "pi/5",
+  "verify": {
+   "kind": "int",
+   "f": "pi*y^4",
+   "v": "y",
+   "a": "0",
+   "b": "1"
+  }
+ },
+ "s4e07": {
+  "id": "s4e07",
+  "level": 2,
+  "type": "num",
+  "answer": "7.8647",
+  "tol": 0.01,
+  "verify": {
+   "kind": "int",
+   "f": "sqrt(25-x^2)",
+   "v": "x",
+   "a": "2",
+   "b": "4"
+  }
+ },
+ "s4e08": {
+  "id": "s4e08",
+  "level": 2,
+  "type": "num",
+  "answer": "94*pi/3",
+  "verify": {
+   "kind": "int",
+   "f": "pi*(25-x^2)",
+   "v": "x",
+   "a": "2",
+   "b": "4"
+  }
+ },
+ "s4e09": {
+  "id": "s4e09",
+  "level": 2,
+  "type": "num",
+  "answer": "147.8516",
+  "tol": 0.02,
+  "verify": {
+   "kind": "int",
+   "f": "pi*(25-x^2+2*sqrt(25-x^2))",
+   "v": "x",
+   "a": "2",
+   "b": "4"
+  }
+ },
+ "s4e10": {
+  "id": "s4e10",
+  "level": 2,
+  "type": "num",
+  "answer": "e - 1/e + 4/3",
+  "tol": 0.001,
+  "verify": {
+   "kind": "int",
+   "f": "exp(x)-(x^2-1)",
+   "v": "x",
+   "a": "-1",
+   "b": "1"
+  }
+ },
+ "s4e11": {
+  "id": "s4e11",
+  "level": 2,
+  "type": "num",
+  "answer": "59/12",
+  "tol": 0.001,
+  "verify": {
+   "kind": "int",
+   "f": "abs(x/2-sqrt(x))",
+   "v": "x",
+   "a": "0",
+   "b": "9"
+  }
+ },
+ "s4e12": {
+  "id": "s4e12",
+  "level": 2,
+  "type": "num",
+  "answer": "pi/2*(e^4-e^2)",
+  "tol": 0.05,
+  "verify": {
+   "kind": "int",
+   "f": "pi*exp(2*y)",
+   "v": "y",
+   "a": "1",
+   "b": "2"
+  }
+ },
+ "s4e13": {
+  "id": "s4e13",
+  "level": 2,
+  "type": "num",
+  "answer": "4*pi/21",
+  "verify": {
+   "kind": "int",
+   "f": "pi*(x^2-x^6)",
+   "v": "x",
+   "a": "0",
+   "b": "1"
+  }
+ },
+ "s4e14": {
+  "id": "s4e14",
+  "level": 2,
+  "type": "num",
+  "answer": "29*pi/42",
+  "verify": {
+   "kind": "int",
+   "f": "pi*((x+1)^2-(x^3+1)^2)",
+   "v": "x",
+   "a": "0",
+   "b": "1"
+  }
+ },
+ "s4e15": {
+  "id": "s4e15",
+  "level": 2,
+  "type": "num",
+  "answer": "32*pi/5",
+  "verify": {
+   "kind": "int",
+   "f": "pi*x^4",
+   "v": "x",
+   "a": "0",
+   "b": "2"
+  }
+ },
+ "s4e16": {
+  "id": "s4e16",
+  "level": 2,
+  "type": "set",
+  "answer": [
+   "-2",
+   "2"
+  ]
+ },
+ "s4e17": {
+  "id": "s4e17",
+  "level": 2,
+  "type": "num",
+  "answer": "40/3",
+  "verify": {
+   "kind": "int",
+   "f": "(5-x^2)-x^2/4",
+   "v": "x",
+   "a": "-2",
+   "b": "2"
+  }
+ },
+ "s4e18": {
+  "id": "s4e18",
+  "level": 3,
+  "type": "num",
+  "answer": "176*pi/3",
+  "verify": {
+   "kind": "int",
+   "f": "pi*((5-x^2)^2-(x^2/4)^2)",
+   "v": "x",
+   "a": "-2",
+   "b": "2"
+  }
+ },
+ "s4e19": {
+  "id": "s4e19",
+  "level": 3,
+  "type": "num",
+  "answer": "8*pi",
+  "verify": {
+   "kind": "int",
+   "f": "2*pi*x*x^2",
+   "v": "x",
+   "a": "0",
+   "b": "2"
+  }
+ },
+ "s4e20": {
+  "id": "s4e20",
+  "level": 3,
+  "type": "num",
+  "answer": "46/3",
+  "verify": {
+   "kind": "int",
+   "f": "abs((8-x^2)-x^2)",
+   "v": "x",
+   "a": "0",
+   "b": "3"
+  }
+ },
+ "s4e21": {
+  "id": "s4e21",
+  "level": 3,
+  "type": "num",
+  "answer": "9/2",
+  "verify": {
+   "kind": "int",
+   "f": "y-(y^2-2)",
+   "v": "y",
+   "a": "-1",
+   "b": "2"
+  }
+ },
+ "s4e22": {
+  "id": "s4e22",
+  "level": 3,
+  "type": "num",
+  "answer": "1088*pi/15",
+  "tol": 0.05,
+  "verify": {
+   "kind": "int",
+   "f": "pi*(25-(y^2+1)^2)",
+   "v": "y",
+   "a": "-2",
+   "b": "2"
+  }
+ },
+ "s5e01": {
+  "id": "s5e01",
+  "level": 1,
+  "type": "num",
+  "answer": "84",
+  "verify": {
+   "kind": "int2",
+   "f": "7",
+   "outer": "x",
+   "a": "1",
+   "b": "4",
+   "lo": "-1",
+   "hi": "3"
+  }
+ },
+ "s5e02": {
+  "id": "s5e02",
+  "level": 1,
+  "type": "num",
+  "answer": "3",
+  "verify": {
+   "kind": "int2",
+   "f": "x+y",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "2"
+  }
+ },
+ "s5e03": {
+  "id": "s5e03",
+  "level": 1,
+  "type": "num",
+  "answer": "2/3",
+  "verify": {
+   "kind": "int2",
+   "f": "x*y^2",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "0",
+   "hi": "1"
+  }
+ },
+ "s5e04": {
+  "id": "s5e04",
+  "level": 1,
+  "type": "num",
+  "answer": "-12",
+  "verify": {
+   "kind": "int2",
+   "f": "2*x-3*y",
+   "outer": "x",
+   "a": "-1",
+   "b": "1",
+   "lo": "0",
+   "hi": "2"
+  }
+ },
+ "s5e05": {
+  "id": "s5e05",
+  "level": 1,
+  "type": "num",
+  "answer": "16/5",
+  "verify": {
+   "kind": "int2",
+   "f": "y",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "0",
+   "hi": "x^2"
+  }
+ },
+ "s5e06": {
+  "id": "s5e06",
+  "level": 1,
+  "type": "num",
+  "answer": "1/3",
+  "verify": {
+   "kind": "int2",
+   "f": "1",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "x^2",
+   "hi": "sqrt(x)"
+  }
+ },
+ "s5e07": {
+  "id": "s5e07",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "Solo como tipo I, porque sus límites en $x$ son constantes.",
+   "Solo como tipo II, porque sus límites en $y$ son constantes.",
+   "Como tipo I y tipo II a la vez: cualquier rectángulo con lados paralelos a los ejes admite ambas descripciones.",
+   "No puede describirse como tipo I ni tipo II porque no está limitada por curvas."
+  ],
+  "correct": 2
+ },
+ "s5e08": {
+  "id": "s5e08",
+  "level": 2,
+  "type": "num",
+  "answer": "5/12",
+  "verify": {
+   "kind": "int2",
+   "f": "x^2+y",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "x"
+  }
+ },
+ "s5e09": {
+  "id": "s5e09",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "$\\displaystyle\\int_0^1\\int_0^{2x} f(x,y)\\,dy\\,dx$",
+   "$\\displaystyle\\int_0^1\\int_{2x}^{2} f(x,y)\\,dy\\,dx$",
+   "$\\displaystyle\\int_0^2\\int_0^{x/2} f(x,y)\\,dy\\,dx$",
+   "$\\displaystyle\\int_0^1\\int_0^{x} f(x,y)\\,dy\\,dx$"
+  ],
+  "correct": 0
+ },
+ "s5e10": {
+  "id": "s5e10",
+  "level": 2,
+  "type": "num",
+  "answer": "8",
+  "verify": {
+   "kind": "int2",
+   "f": "6-x-y",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "0",
+   "hi": "x"
+  }
+ },
+ "s5e11": {
+  "id": "s5e11",
+  "level": 2,
+  "type": "num",
+  "answer": "8/3",
+  "verify": {
+   "kind": "int2",
+   "f": "1",
+   "outer": "x",
+   "a": "-1",
+   "b": "1",
+   "lo": "x^2",
+   "hi": "2-x^2"
+  }
+ },
+ "s5e12": {
+  "id": "s5e12",
+  "level": 2,
+  "type": "num",
+  "answer": "128/5",
+  "verify": {
+   "kind": "int2",
+   "f": "x",
+   "outer": "y",
+   "a": "-2",
+   "b": "2",
+   "lo": "y^2",
+   "hi": "4"
+  }
+ },
+ "s5e13": {
+  "id": "s5e13",
+  "level": 2,
+  "type": "set",
+  "answer": [
+   "-1",
+   "0",
+   "1"
+  ]
+ },
+ "s5e14": {
+  "id": "s5e14",
+  "level": 2,
+  "type": "num",
+  "answer": "1/3",
+  "verify": {
+   "kind": "int2",
+   "f": "x^2*cos(y)",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "pi/2"
+  }
+ },
+ "s5e15": {
+  "id": "s5e15",
+  "level": 2,
+  "type": "num",
+  "tol": 0.01,
+  "answer": "pi",
+  "verify": {
+   "kind": "int2",
+   "f": "x",
+   "outer": "x",
+   "a": "0",
+   "b": "pi",
+   "lo": "0",
+   "hi": "sin(x)"
+  }
+ },
+ "s5e16": {
+  "id": "s5e16",
+  "level": 2,
+  "type": "num",
+  "answer": "7"
+ },
+ "s5e17": {
+  "id": "s5e17",
+  "level": 3,
+  "type": "num",
+  "answer": "5/6",
+  "verify": {
+   "kind": "int2",
+   "f": "x^2+y^2",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "x",
+   "hi": "2*x"
+  }
+ },
+ "s5e18": {
+  "id": "s5e18",
+  "level": 3,
+  "type": "num",
+  "answer": "(e-1)/2",
+  "verify": {
+   "kind": "int2",
+   "f": "exp(y^2)",
+   "outer": "y",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "y"
+  }
+ },
+ "s5e19": {
+  "id": "s5e19",
+  "level": 3,
+  "type": "num",
+  "tol": 0.001,
+  "answer": "sin(1)",
+  "verify": {
+   "kind": "int2",
+   "f": "cos(y^2)",
+   "outer": "y",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "2*y"
+  }
+ },
+ "s5e20": {
+  "id": "s5e20",
+  "level": 3,
+  "type": "num",
+  "answer": "3/10",
+  "verify": {
+   "kind": "int2",
+   "f": "x+y",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "x^2",
+   "hi": "sqrt(x)"
+  }
+ },
+ "s5e21": {
+  "id": "s5e21",
+  "level": 3,
+  "type": "choice",
+  "options": [
+   "$0$, porque $f$ es impar en $x$ y $D$ es simétrica respecto al eje $y$: las contribuciones de $x>0$ y $x<0$ se cancelan.",
+   "Es siempre positiva, porque $x^3$ y $\\sin y$ pueden ser ambas positivas.",
+   "No se puede determinar sin conocer $D$ explícitamente y calcular la integral.",
+   "Es igual al doble de la integral sobre la mitad con $x\\ge 0$."
+  ],
+  "correct": 0
+ },
+ "s6e01": {
+  "id": "s6e01",
+  "level": 1,
+  "type": "num",
+  "answer": "9/2",
+  "verify": {
+   "kind": "int2",
+   "f": "1",
+   "outer": "x",
+   "a": "0",
+   "b": "3",
+   "lo": "0",
+   "hi": "x"
+  }
+ },
+ "s6e02": {
+  "id": "s6e02",
+  "level": 1,
+  "type": "num",
+  "answer": "18",
+  "verify": {
+   "kind": "int2",
+   "f": "3",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "0",
+   "hi": "3"
+  }
+ },
+ "s6e03": {
+  "id": "s6e03",
+  "level": 1,
+  "type": "num",
+  "answer": "1/3",
+  "verify": {
+   "kind": "int2",
+   "f": "x",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "x"
+  }
+ },
+ "s6e04": {
+  "id": "s6e04",
+  "level": 1,
+  "type": "num",
+  "answer": "16/3",
+  "verify": {
+   "kind": "int2",
+   "f": "1",
+   "outer": "x",
+   "a": "0",
+   "b": "4",
+   "lo": "0",
+   "hi": "sqrt(x)"
+  }
+ },
+ "s6e05": {
+  "id": "s6e05",
+  "level": 1,
+  "type": "num",
+  "answer": "8",
+  "verify": {
+   "kind": "int2",
+   "f": "2*y",
+   "outer": "x",
+   "a": "0",
+   "b": "4",
+   "lo": "0",
+   "hi": "sqrt(x)"
+  }
+ },
+ "s6e06": {
+  "id": "s6e06",
+  "level": 1,
+  "type": "set",
+  "answer": [
+   "-1",
+   "2"
+  ]
+ },
+ "s6e07": {
+  "id": "s6e07",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "$\\displaystyle\\int_{-1}^{2}\\int_{x^2}^{x+2} f(x,y)\\,dy\\,dx$",
+   "$\\displaystyle\\int_{-1}^{2}\\int_{x+2}^{x^2} f(x,y)\\,dy\\,dx$",
+   "$\\displaystyle\\int_{0}^{2}\\int_{x^2}^{x+2} f(x,y)\\,dy\\,dx$",
+   "$\\displaystyle\\int_{-1}^{2}\\int_{0}^{x^2} f(x,y)\\,dy\\,dx$"
+  ],
+  "correct": 0
+ },
+ "s6e08": {
+  "id": "s6e08",
+  "level": 2,
+  "type": "num",
+  "answer": "64/3",
+  "verify": {
+   "kind": "int2",
+   "f": "1",
+   "outer": "x",
+   "a": "-2",
+   "b": "2",
+   "lo": "x^2",
+   "hi": "8-x^2"
+  }
+ },
+ "s6e09": {
+  "id": "s6e09",
+  "level": 2,
+  "type": "num",
+  "answer": "22/3",
+  "verify": {
+   "kind": "int2",
+   "f": "1",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "x",
+   "hi": "6-x^2"
+  }
+ },
+ "s6e10": {
+  "id": "s6e10",
+  "level": 2,
+  "type": "num",
+  "answer": "36/5",
+  "verify": {
+   "kind": "int2",
+   "f": "x+y",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "0",
+   "hi": "x^2"
+  }
+ },
+ "s6e11": {
+  "id": "s6e11",
+  "level": 2,
+  "type": "num",
+  "tol": 0.01,
+  "answer": "6*pi",
+  "verify": {
+   "kind": "int2",
+   "f": "sqrt(4-x^2)",
+   "outer": "x",
+   "a": "-2",
+   "b": "2",
+   "lo": "0",
+   "hi": "3"
+  }
+ },
+ "s6e12": {
+  "id": "s6e12",
+  "level": 2,
+  "type": "num",
+  "answer": "16/3",
+  "verify": {
+   "kind": "int2",
+   "f": "4-x-y",
+   "outer": "x",
+   "a": "0",
+   "b": "2",
+   "lo": "0",
+   "hi": "2-x"
+  }
+ },
+ "s6e13": {
+  "id": "s6e13",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "$\\displaystyle\\int_0^1\\int_0^2 (x^2+y^2)\\,dy\\,dx$",
+   "$\\displaystyle\\int_0^2\\int_0^1 (x^2+y^2)\\,dx\\,dx$",
+   "$\\displaystyle\\int_0^1\\int_0^1 (x^2+y^2)\\,dy\\,dx$",
+   "$\\displaystyle\\int_0^1\\int_x^2 (x^2+y^2)\\,dy\\,dx$"
+  ],
+  "correct": 0
+ },
+ "s6e14": {
+  "id": "s6e14",
+  "level": 2,
+  "type": "num",
+  "answer": "10/3",
+  "verify": {
+   "kind": "int2",
+   "f": "x^2+y^2",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "2"
+  }
+ },
+ "s6e15": {
+  "id": "s6e15",
+  "level": 3,
+  "type": "num",
+  "answer": "13/6",
+  "verify": {
+   "kind": "int2",
+   "f": "6-2*x-3*y",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "1-x"
+  }
+ },
+ "s6e16": {
+  "id": "s6e16",
+  "level": 3,
+  "type": "num",
+  "answer": "32",
+  "verify": {
+   "kind": "int2",
+   "f": "4-y^2",
+   "outer": "x",
+   "a": "0",
+   "b": "3",
+   "lo": "-2",
+   "hi": "2"
+  }
+ },
+ "s6e17": {
+  "id": "s6e17",
+  "level": 3,
+  "type": "num",
+  "answer": "25/3",
+  "verify": {
+   "kind": "int2",
+   "f": "9-x^2-y^2",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "0",
+   "hi": "1"
+  }
+ },
+ "s6e18": {
+  "id": "s6e18",
+  "level": 3,
+  "type": "num",
+  "answer": "3/8",
+  "verify": {
+   "kind": "int2",
+   "f": "x*y",
+   "outer": "x",
+   "a": "0",
+   "b": "1",
+   "lo": "x",
+   "hi": "2*x"
+  }
+ },
+ "s6e19": {
+  "id": "s6e19",
+  "level": 3,
+  "type": "choice",
+  "options": [
+   "La fórmula general de volumen por secciones transversales $V=\\displaystyle\\int A(x)\\,dx$, donde en los discos/arandelas $A(x)$ es el área de un círculo o una corona circular ($\\pi R^2$ o $\\pi[R^2-r^2]$), en vez de obtenerse integrando una función de dos variables.",
+   "Una integral doble sobre un rectángulo, porque toda superficie de revolución puede escribirse como $z=f(x,y)$ sobre un rectángulo.",
+   "El teorema de Fubini, porque ambos métodos permiten cambiar el orden de integración.",
+   "No están relacionados: son técnicas independientes que no comparten ninguna fórmula."
+  ],
+  "correct": 0
+ },
+ "s6e20": {
+  "id": "s6e20",
+  "level": 3,
+  "type": "num",
+  "answer": "52/15",
+  "verify": {
+   "kind": "int2",
+   "f": "x+y+2",
+   "outer": "x",
+   "a": "-1",
+   "b": "1",
+   "lo": "x^2",
+   "hi": "1"
+  }
+ },
+ "s7e01": {
+  "id": "s7e01",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "Ecuación en derivadas parciales, orden 1, grado 1",
+   "Ecuación diferencial ordinaria, orden 1, grado 1",
+   "Ecuación diferencial ordinaria, orden 2, grado 1",
+   "Ecuación diferencial ordinaria, orden 1, grado 2"
+  ],
+  "correct": 1
+ },
+ "s7e02": {
+  "id": "s7e02",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "EDO, orden 1, grado 1",
+   "EDP, orden 2, grado 1",
+   "EDO, orden 2, grado 1",
+   "EDO, orden 2, grado 2"
+  ],
+  "correct": 2
+ },
+ "s7e03": {
+  "id": "s7e03",
+  "level": 1,
+  "type": "set",
+  "answer": [
+   "3",
+   "-2"
+  ]
+ },
+ "s7e04": {
+  "id": "s7e04",
+  "level": 1,
+  "type": "num",
+  "answer": "3"
+ },
+ "s7e05": {
+  "id": "s7e05",
+  "level": 1,
+  "type": "ode",
+  "order": 1,
+  "res": "yp-4*x^3",
+  "ref": "x^4+C",
+  "consts": [
+   "C"
+  ],
+  "v": "x"
+ },
+ "s7e06": {
+  "id": "s7e06",
+  "level": 1,
+  "type": "func",
+  "v": "x",
+  "ref": "x^2+2"
+ },
+ "s7e07": {
+  "id": "s7e07",
+  "level": 2,
+  "type": "num",
+  "answer": "50*exp(2)"
+ },
+ "s7e08": {
+  "id": "s7e08",
+  "level": 2,
+  "type": "num",
+  "answer": "0"
+ },
+ "s7e09": {
+  "id": "s7e09",
+  "level": 2,
+  "type": "num",
+  "answer": "-1"
+ },
+ "s7e10": {
+  "id": "s7e10",
+  "level": 2,
+  "type": "set",
+  "answer": [
+   "2",
+   "-1"
+  ]
+ },
+ "s7e11": {
+  "id": "s7e11",
+  "level": 2,
+  "type": "num",
+  "answer": "12"
+ },
+ "s7e12": {
+  "id": "s7e12",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "Una función creciente que se aproxima a $y=1$ sin cruzarla",
+   "Una función decreciente en algún intervalo de su dominio",
+   "La función constante $y=1$",
+   "Una función creciente sin cota superior"
+  ],
+  "correct": 1
+ },
+ "s7e13": {
+  "id": "s7e13",
+  "level": 2,
+  "type": "ode",
+  "order": 1,
+  "res": "yp-6*x^2+2",
+  "ref": "2*x^3-2*x+C",
+  "consts": [
+   "C"
+  ],
+  "v": "x"
+ },
+ "s7e14": {
+  "id": "s7e14",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "sin(x)+1"
+ },
+ "s7e15": {
+  "id": "s7e15",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "Una EDO de orden 2",
+   "Una ecuación en derivadas parciales (EDP) de orden 2",
+   "Una EDO de orden 1",
+   "Una ecuación algebraica"
+  ],
+  "correct": 1
+ },
+ "s7e16": {
+  "id": "s7e16",
+  "level": 3,
+  "type": "num",
+  "answer": "1.625",
+  "tol": 0.0005
+ },
+ "s7e17": {
+  "id": "s7e17",
+  "level": 3,
+  "type": "num",
+  "answer": "0.625",
+  "tol": 0.0005
+ },
+ "s7e18": {
+  "id": "s7e18",
+  "level": 3,
+  "type": "set",
+  "answer": [
+   "1",
+   "-3"
+  ]
+ },
+ "s8e01": {
+  "id": "s8e01",
+  "level": 1,
+  "type": "ode",
+  "order": 1,
+  "v": "x",
+  "res": "yp-5*y",
+  "ref": "C*exp(5*x)",
+  "consts": [
+   "C"
+  ]
+ },
+ "s8e02": {
+  "id": "s8e02",
+  "level": 1,
+  "type": "ode",
+  "order": 1,
+  "v": "x",
+  "res": "yp+0.3*y",
+  "ref": "C*exp(-0.3*x)",
+  "consts": [
+   "C"
+  ]
+ },
+ "s8e03": {
+  "id": "s8e03",
+  "level": 1,
+  "type": "func",
+  "v": "x",
+  "ref": "7*exp(4*x)"
+ },
+ "s8e04": {
+  "id": "s8e04",
+  "level": 1,
+  "type": "func",
+  "v": "x",
+  "ref": "200*exp(-0.5*x)"
+ },
+ "s8e05": {
+  "id": "s8e05",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "$\\dfrac{dy}{dx}=x+y$",
+   "$\\dfrac{dy}{dx}=\\dfrac{y}{x}$",
+   "$\\dfrac{dy}{dx}=x^2+y^2$",
+   "$\\dfrac{dy}{dx}=e^{x+y^2}$ sin poder factorizar como producto"
+  ],
+  "correct": 1
+ },
+ "s8e06": {
+  "id": "s8e06",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "No, porque $M_y\\neq N_x$",
+   "Sí, porque $M_y=N_x=2x$",
+   "No es aplicable el criterio porque $N$ depende de $y$",
+   "Sí, pero solo si $x>0$"
+  ],
+  "correct": 1
+ },
+ "s8e07": {
+  "id": "s8e07",
+  "level": 1,
+  "type": "num",
+  "answer": "2"
+ },
+ "s8e08": {
+  "id": "s8e08",
+  "level": 2,
+  "type": "ode",
+  "order": 1,
+  "v": "x",
+  "res": "yp-x*y",
+  "ref": "C*exp(x^2/2)",
+  "consts": [
+   "C"
+  ]
+ },
+ "s8e09": {
+  "id": "s8e09",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "2*exp(x^2/2)"
+ },
+ "s8e10": {
+  "id": "s8e10",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "-sqrt(x^2+5)"
+ },
+ "s8e11": {
+  "id": "s8e11",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "25+75*exp(-0.07*x)"
+ },
+ "s8e12": {
+  "id": "s8e12",
+  "level": 2,
+  "type": "num",
+  "answer": "ln(5)/0.07",
+  "tol": 0.01
+ },
+ "s8e13": {
+  "id": "s8e13",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "10-5*exp(-0.02*x)"
+ },
+ "s8e14": {
+  "id": "s8e14",
+  "level": 2,
+  "type": "num",
+  "answer": "10-5*exp(-1)"
+ },
+ "s8e15": {
+  "id": "s8e15",
+  "level": 2,
+  "type": "pot",
+  "M": "3*x^2+2*y^2",
+  "N": "4*x*y+6*y^2",
+  "ref": "x^3+2*x*y^2+2*y^3"
+ },
+ "s8e16": {
+  "id": "s8e16",
+  "level": 2,
+  "type": "pot",
+  "M": "2*x*y+3",
+  "N": "x^2-1",
+  "ref": "x^2*y+3*x-y"
+ },
+ "s8e17": {
+  "id": "s8e17",
+  "level": 3,
+  "type": "pot",
+  "M": "y*cos(x)+2*x*exp(y)",
+  "N": "sin(x)+x^2*exp(y)-1",
+  "ref": "y*sin(x)+x^2*exp(y)-y"
+ },
+ "s8e18": {
+  "id": "s8e18",
+  "level": 3,
+  "type": "num",
+  "answer": "-1"
+ },
+ "s8e19": {
+  "id": "s8e19",
+  "level": 3,
+  "type": "func",
+  "v": "x",
+  "ref": "-1+sqrt((x+1)^2+8)"
+ },
+ "s8e20": {
+  "id": "s8e20",
+  "level": 3,
+  "type": "choice",
+  "options": [
+   "$y=0$",
+   "$y=1$",
+   "$y=-1$",
+   "No se pierde ninguna solución"
+  ],
+  "correct": 1
+ },
+ "s9e01": {
+  "id": "s9e01",
+  "level": 1,
+  "type": "set",
+  "answer": [
+   "2",
+   "-1"
+  ]
+ },
+ "s9e02": {
+  "id": "s9e02",
+  "level": 1,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "ypp-yp-2*y",
+  "ref": "C1*exp(2*x)+C2*exp(-x)",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e03": {
+  "id": "s9e03",
+  "level": 1,
+  "type": "set",
+  "answer": [
+   "-3",
+   "-3"
+  ]
+ },
+ "s9e04": {
+  "id": "s9e04",
+  "level": 1,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "ypp+6*yp+9*y",
+  "ref": "(C1+C2*x)*exp(-3*x)",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e05": {
+  "id": "s9e05",
+  "level": 2,
+  "type": "set",
+  "answer": [
+   "-1",
+   "2"
+  ]
+ },
+ "s9e06": {
+  "id": "s9e06",
+  "level": 2,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "ypp+2*yp+5*y",
+  "ref": "exp(-x)*(C1*cos(2*x)+C2*sin(2*x))",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e07": {
+  "id": "s9e07",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "Homogénea y lineal",
+   "No homogénea y lineal",
+   "No homogénea y no lineal",
+   "Homogénea y no lineal"
+  ],
+  "correct": 1
+ },
+ "s9e08": {
+  "id": "s9e08",
+  "level": 1,
+  "type": "choice",
+  "options": [
+   "$y=C_1e^{r_1x}\\cdot C_2e^{r_2x}$",
+   "$y=C_1e^{r_1x}+C_2e^{r_2x}$",
+   "$y=(C_1+C_2x)e^{r_1x}$",
+   "$y=C_1e^{r_1x}$ únicamente"
+  ],
+  "correct": 1
+ },
+ "s9e09": {
+  "id": "s9e09",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "2*exp(x)+exp(-x)"
+ },
+ "s9e10": {
+  "id": "s9e10",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "3*sin(2*x)"
+ },
+ "s9e11": {
+  "id": "s9e11",
+  "level": 2,
+  "type": "func",
+  "v": "x",
+  "ref": "2*cos(2*x)"
+ },
+ "s9e12": {
+  "id": "s9e12",
+  "level": 1,
+  "type": "num",
+  "answer": "pi"
+ },
+ "s9e13": {
+  "id": "s9e13",
+  "level": 2,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "ypp-3*yp+2*y-4*x",
+  "ref": "C1*exp(x)+C2*exp(2*x)+2*x+3",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e14": {
+  "id": "s9e14",
+  "level": 3,
+  "type": "num",
+  "answer": "-6"
+ },
+ "s9e15": {
+  "id": "s9e15",
+  "level": 2,
+  "type": "choice",
+  "options": [
+   "Porque $e^{2x}$ no es una función derivable",
+   "Porque $e^{2x}$ ya es solución de la ecuación homogénea asociada (hay resonancia)",
+   "Porque el coeficiente $A$ siempre debe ser negativo",
+   "Porque la ecuación no tiene solución particular"
+  ],
+  "correct": 1
+ },
+ "s9e16": {
+  "id": "s9e16",
+  "level": 3,
+  "type": "func",
+  "v": "x",
+  "ref": "(-1/16)*exp(2*x)+(1/16)*exp(-2*x)+(x/4)*exp(2*x)"
+ },
+ "s9e17": {
+  "id": "s9e17",
+  "level": 2,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "ypp+y",
+  "ref": "C1*cos(x)+C2*sin(x)",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e18": {
+  "id": "s9e18",
+  "level": 3,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "ypp+y-sin(2*x)",
+  "ref": "C1*cos(x)+C2*sin(x)-(1/3)*sin(2*x)",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e19": {
+  "id": "s9e19",
+  "level": 3,
+  "type": "choice",
+  "options": [
+   "$y_p=A\\cos 2x+B\\sin 2x$",
+   "$y_p=x(A\\cos 2x+B\\sin 2x)$",
+   "$y_p=Ae^{2x}$",
+   "$y_p=A\\cos 2x$ (sin el término en seno)"
+  ],
+  "correct": 1
+ },
+ "s9e20": {
+  "id": "s9e20",
+  "level": 2,
+  "type": "set",
+  "answer": [
+   "2",
+   "-1/2"
+  ]
+ },
+ "s9e21": {
+  "id": "s9e21",
+  "level": 2,
+  "type": "ode",
+  "order": 2,
+  "v": "x",
+  "res": "2*ypp-3*yp-2*y",
+  "ref": "C1*exp(2*x)+C2*exp(-x/2)",
+  "consts": [
+   "C1",
+   "C2"
+  ]
+ },
+ "s9e22": {
+  "id": "s9e22",
+  "level": 3,
+  "type": "func",
+  "v": "x",
+  "ref": "(1+2*x)*exp(x)"
+ }
+}

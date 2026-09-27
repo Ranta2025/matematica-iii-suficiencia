@@ -1,0 +1,653 @@
+<title>Matemática III · Suficiencia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root {
+  --paper: #F3F5F8;
+  --surface: #FFFFFF;
+  --ink: #1A2238;
+  --muted: #5B6680;
+  --grid: #DDE3EC;
+  --line: #C9D2DF;
+  --accent: #2446B5;
+  --accent-soft: #E3E9FB;
+  --hl: #F1D24A;
+  --hl-soft: #FBF3C9;
+  --ok: #17835A;
+  --ok-soft: #DDF3E9;
+  --bad: #C0392F;
+  --bad-soft: #FBE3E0;
+  --warn-soft: #FDEEDD;
+  --warn: #A5570F;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #10141D; --surface: #171C28; --ink: #E3E7F1; --muted: #98A2BA; --grid: #222A3A; --line: #2F384B;
+    --accent: #88A2FF; --accent-soft: #1E2745; --hl: #E2C548;
+    --hl-soft: #353018; --ok: #4CC593; --ok-soft: #14301F; --bad: #FF7B6E; --bad-soft: #3A1B19; --warn-soft: #33250F; --warn: #F0A755;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #10141D; --surface: #171C28; --ink: #E3E7F1; --muted: #98A2BA; --grid: #222A3A; --line: #2F384B;
+  --accent: #88A2FF; --accent-soft: #1E2745; --hl: #E2C548;
+  --hl-soft: #353018; --ok: #4CC593; --ok-soft: #14301F; --bad: #FF7B6E; --bad-soft: #3A1B19; --warn-soft: #33250F; --warn: #F0A755;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--paper); }
+body {
+  margin: 0; color: var(--ink); font: 16px/1.65 var(--font-body);
+  background-color: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px; background-attachment: fixed;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.2; text-wrap: balance; margin: 0; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+a { color: var(--accent); }
+
+.app { display: grid; grid-template-columns: 290px minmax(0, 1fr); min-height: 100vh; }
+.side {
+  position: sticky; top: env(safe-area-inset-top, 0px); height: 100vh; overflow-y: auto;
+  background: var(--surface); border-right: 1px solid var(--line); padding: 22px 16px 32px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.brand { display: flex; flex-direction: column; gap: 2px; padding-inline: 8px; cursor: pointer; }
+.brand b { font-family: var(--font-display); font-size: 1.45rem; font-weight: 800; letter-spacing: -0.01em; }
+.brand span { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.overall { padding-inline: 8px; display: flex; flex-direction: column; gap: 6px; font-size: .85rem; color: var(--muted); }
+.bar { height: 6px; background: var(--grid); border-radius: 3px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--ok); width: 0; transition: width .3s; }
+.navgroup { display: flex; flex-direction: column; gap: 2px; }
+.navgroup h4 { font-family: var(--font-body); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); padding: 6px 8px; font-weight: 600; }
+.navbtn {
+  display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 8px; text-align: left;
+  border: 0; background: transparent; padding: 8px; border-radius: 8px; width: 100%;
+}
+.navbtn:hover { background: var(--accent-soft); }
+.navbtn[aria-current="true"] { background: var(--accent); color: var(--surface); }
+.navbtn .code { font: 600 .72rem var(--font-mono); opacity: .75; }
+.navbtn .lbl { font-size: .92rem; line-height: 1.3; }
+.navbtn .cnt { font: .72rem var(--font-mono); opacity: .8; font-variant-numeric: tabular-nums; }
+.tools { display: flex; flex-direction: column; gap: 2px; }
+
+main { padding-block: 32px 80px; padding-inline: clamp(16px, 4vw, 56px); min-width: 0; }
+.wrap { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+.eyebrow { font: 600 .75rem var(--font-mono); text-transform: uppercase; letter-spacing: .12em; color: var(--accent); }
+.title { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -0.02em; }
+.lede { color: var(--muted); max-width: 65ch; margin: 0; }
+
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 2px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); background: var(--paper); z-index: 5; padding-top: 8px; }
+.tab { border: 0; background: transparent; padding: 10px 14px; font-weight: 600; color: var(--muted); border-bottom: 3px solid transparent; margin-bottom: -2px; }
+.tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.tab .n { font: .75rem var(--font-mono); margin-left: 6px; background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 10px; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(18px, 3vw, 30px); }
+.panel h2 { font-size: 1.45rem; margin-bottom: 10px; }
+.panel h3 { font-size: 1.12rem; margin: 18px 0 6px; }
+.prose { max-width: 70ch; }
+.prose p { margin: 0 0 12px; }
+.prose ul, .prose ol { margin: 0 0 12px; padding-left: 22px; }
+.prose li { margin-bottom: 4px; }
+.goals { margin: 0; padding-left: 20px; }
+.key { border: 2px solid var(--accent); background: var(--accent-soft); border-radius: 8px; padding: 12px 16px; margin: 14px 0; overflow-x: auto; }
+.note { border-left: 4px solid var(--hl); background: var(--hl-soft); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 14px 0; }
+.warn { border-left: 4px solid var(--warn); background: var(--warn-soft); padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 14px 0; }
+.warn::before { content: "Error frecuente · "; font-weight: 600; color: var(--warn); }
+.tblwrap, .prose .tbl { overflow-x: auto; }
+table.tbl { border-collapse: collapse; margin: 12px 0; font-variant-numeric: tabular-nums; font-size: .92rem; display: block; overflow-x: auto; max-width: 100%; }
+table.tbl th, table.tbl td { border: 1px solid var(--line); padding: 5px 10px; text-align: center; white-space: nowrap; }
+table.tbl th { background: var(--accent-soft); }
+mjx-container[jax="SVG"] { direction: ltr; }
+mjx-container[jax="SVG"] > svg { overflow: visible; min-height: 1px; min-width: 1px; }
+mjx-container[display="true"] > svg { max-width: none; }
+mjx-container:not([display="true"]) { display: inline-block; }
+mjx-container[display="true"] { display: block; text-align: center; margin: 12px 0; overflow-x: auto; overflow-y: hidden; max-width: 100%; padding-block: 4px; }
+svg { max-width: 100%; }
+
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.ex { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(16px, 3vw, 24px); display: flex; flex-direction: column; gap: 12px; }
+.ex header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.ex h3 { font-size: 1.08rem; }
+.pill { font: 600 .7rem var(--font-mono); text-transform: uppercase; letter-spacing: .06em; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.pill.l1 { color: var(--ok); border-color: var(--ok); }
+.pill.l2 { color: var(--accent); border-color: var(--accent); }
+.pill.l3 { color: var(--bad); border-color: var(--bad); }
+.pill.done { background: var(--ok); color: var(--surface); border-color: var(--ok); }
+.steps { display: flex; flex-direction: column; gap: 10px; counter-reset: st; }
+.step { border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; position: relative; }
+.step::before { counter-increment: st; content: "Paso " counter(st); display: block; font: 600 .72rem var(--font-mono); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 2px; }
+.step p:last-child { margin-bottom: 0; }
+.final { border: 2px solid var(--ok); background: var(--ok-soft); border-radius: 8px; padding: 10px 14px; }
+.final::before { content: "Respuesta"; display: block; font: 600 .72rem var(--font-mono); color: var(--ok); text-transform: uppercase; letter-spacing: .08em; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--surface); padding: 8px 14px; border-radius: 8px; font-weight: 500; font-size: .92rem; }
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.1); color: var(--surface); }
+.answer { display: flex; flex-direction: column; gap: 8px; }
+.answer label { font-size: .88rem; color: var(--muted); }
+.answer .in { display: flex; gap: 8px; flex-wrap: wrap; }
+.answer input[type="text"] {
+  flex: 1 1 240px; min-width: 0; font-family: var(--font-mono); font-size: 1rem; padding: 9px 12px;
+  border: 1.5px solid var(--line); border-radius: 8px; background: var(--paper);
+}
+.answer input[type="text"]:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px var(--accent-soft); }
+.preview { min-height: 1.6em; font-size: .9rem; color: var(--muted); overflow-x: auto; }
+.preview .err { color: var(--bad); }
+.choices { display: flex; flex-direction: column; gap: 6px; }
+.choices label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; color: var(--ink); font-size: 1rem; }
+.choices label:hover { border-color: var(--accent); }
+.choices input { margin-top: 6px; accent-color: var(--accent); }
+.fb { padding: 10px 14px; border-radius: 8px; font-weight: 500; }
+.fb.ok { background: var(--ok-soft); color: var(--ok); }
+.fb.bad { background: var(--bad-soft); color: var(--bad); }
+.fb.info { background: var(--accent-soft); color: var(--accent); }
+.reveal { border-top: 1px dashed var(--line); padding-top: 12px; }
+.reveal > .tag { font: 600 .72rem var(--font-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: .88rem; color: var(--muted); }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 20px; padding: 4px 12px; font-size: .85rem; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.syntax { font-size: .88rem; }
+.syntax code, .prose code { font-family: var(--font-mono); background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; font-size: .88em; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.card { text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.card:hover { border-color: var(--accent); }
+.card .code { font: 600 .72rem var(--font-mono); color: var(--accent); letter-spacing: .08em; }
+.card b { font-family: var(--font-display); font-size: 1.08rem; line-height: 1.25; }
+.card small { color: var(--muted); font-variant-numeric: tabular-nums; }
+.score { font-family: var(--font-display); font-size: 2rem; font-weight: 800; }
+.loading { color: var(--muted); font-style: italic; }
+.topbar { display: none; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .side { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 14px 16px; gap: 10px; }
+  .side[data-open="false"] .navgroup, .side[data-open="false"] .tools, .side[data-open="false"] .overall { display: none; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .brand { padding: 0; }
+  .brand.desk { display: none; }
+  main { padding-block: 20px 60px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']], processEscapes: true },
+  svg: { fontCache: 'local' },
+  options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code', 'input'] },
+  startup: { typeset: false }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg-full.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjs@13.2.0/lib/browser/math.js"></script>
+<script src="dist/content.js"></script>
+
+<div class="app">
+  <aside class="side" id="side" data-open="false">
+    <div class="topbar">
+      <div class="brand" id="brand-m"><b>Matemática III</b><span>Preparación para suficiencia</span></div>
+      <button class="btn" id="menu-btn" aria-expanded="false" aria-controls="side">Sesiones</button>
+    </div>
+    <div class="brand desk" id="brand"><b>Matemática III</b><span>Preparación para suficiencia</span></div>
+    <div class="overall">
+      <div class="row" style="justify-content:space-between"><span>Ejercicios resueltos</span><span id="overall-count">0 / 0</span></div>
+      <div class="bar"><i id="overall-bar"></i></div>
+    </div>
+    <nav id="nav"></nav>
+    <div class="navgroup tools">
+      <h4>Repaso</h4>
+      <button class="navbtn" data-route="formulario"><span class="code">∑</span><span class="lbl">Formulario</span><span class="cnt"></span></button>
+      <button class="navbtn" data-route="simulacro"><span class="code">⏱</span><span class="lbl">Simulacro de examen</span><span class="cnt"></span></button>
+      <button class="navbtn" data-route="ayuda"><span class="code">?</span><span class="lbl">Cómo escribir respuestas</span><span class="cnt"></span></button>
+    </div>
+  </aside>
+  <main><div class="wrap" id="view"></div></main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  const $ = (s, el = document) => el.querySelector(s);
+  const h = (tag, attrs = {}, html) => {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'class') el.className = v;
+      else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v);
+    }
+    if (html !== undefined) el.innerHTML = html;
+    return el;
+  };
+  if (window.MJX_DEFS) document.body.insertAdjacentHTML('afterbegin', '<svg id="mjx-defs" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">' + window.MJX_DEFS + '</svg>');
+  const SESSIONS = (window.SESSIONS || []).slice().sort((a, b) => a.order - b.order);
+  const ALL_EX = [];
+  SESSIONS.forEach((s) => s.exercises.forEach((e) => ALL_EX.push({ s, e })));
+
+  // ---------- storage ----------
+  const KEY = 'm3-suficiencia-progress';
+  let progress = {};
+  try { progress = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (_) { progress = {}; }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(progress)); } catch (_) {} };
+  const prefGet = (k, d) => { try { return localStorage.getItem('m3-' + k) ?? d; } catch (_) { return d; } };
+  const prefSet = (k, v) => { try { localStorage.setItem('m3-' + k, v); } catch (_) {} };
+
+  // ---------- math ----------
+  const hasMath = typeof math !== 'undefined';
+  const M = hasMath ? math.create(math.all) : null;
+  if (hasMath) {
+    M.import({
+      ln: (x) => Math.log(x), sen: (x) => Math.sin(x), arctan: (x) => Math.atan(x), arctg: (x) => Math.atan(x),
+      arcsen: (x) => Math.asin(x), arcsin: (x) => Math.asin(x), arccos: (x) => Math.acos(x), tg: (x) => Math.tan(x),
+      ctg: (x) => 1 / Math.tan(x), cosec: (x) => 1 / Math.sin(x)
+    }, { override: true });
+  }
+  function clean(raw, { stripC = false, stripLhs = true, decimalComma = true } = {}) {
+    let s = String(raw).trim();
+    if (stripLhs) s = s.replace(/^\s*[A-Za-z]\w*\s*(\([^)]*\))?\s*=\s*/, '');
+    s = s.replace(/[−–]/g, '-').replace(/[·×]/g, '*').replace(/π/g, 'pi').replace(/√/g, 'sqrt').replace(/²/g, '^2').replace(/³/g, '^3');
+    if (decimalComma) s = s.replace(/(\d),(\d)/g, '$1.$2');
+    if (stripC) s = s.replace(/\+\s*[cCkK]\s*$/, '').replace(/^\s*[cCkK]\s*\+/, '');
+    s = s.replace(/(\d)\s*([a-zA-Z(])/g, (m, d, c) => d + '*' + c); // 2x, 3pi, 2(x+1)
+    s = s.replace(/\)\s*\(/g, ')*(');
+    return s;
+  }
+  function compile(expr) {
+    const node = M.parse(expr);
+    const code = node.compile();
+    return { node, run: (scope) => { const r = code.evaluate({ ...scope }); return typeof r === 'number' ? r : (r && typeof r.re === 'number' && Math.abs(r.im) < 1e-12 ? r.re : NaN); } };
+  }
+  const near = (a, b, rel = 5e-4, abs = 0) => isFinite(a) && isFinite(b) && Math.abs(a - b) <= Math.max(abs, rel * Math.max(1, Math.abs(b)));
+  const DEF_PTS = [0.35, 0.8, 1.3, 1.9, 2.6];
+  const d1 = (g, t) => { const k = 1e-5; return (g(t + k) - g(t - k)) / (2 * k); };
+  const d2 = (g, t) => { const k = 1e-4; return (g(t + k) - 2 * g(t) + g(t - k)) / (k * k); };
+  const withCase = (scope) => { const o = { ...scope }; for (const [k, v] of Object.entries(scope)) o[k.toLowerCase()] = v; return o; };
+
+  function check(e, raw) {
+    if (!hasMath) return { ok: false, msg: 'No se pudo cargar el verificador (sin conexión a internet).' };
+    const v = e.v || 'x';
+    const pts = e.pts || DEF_PTS;
+    try {
+      switch (e.type) {
+        case 'num': {
+          const val = compile(clean(raw)).run({});
+          if (!isFinite(val)) return { ok: false, msg: 'Tu respuesta no da un número. Revisa la escritura.' };
+          const ref = compile(e.answer).run({});
+          return near(val, ref, 5e-4, e.tol || 0) ? { ok: true } : { ok: false, msg: 'No coincide. Revisa el planteamiento y los cálculos.' };
+        }
+        case 'func': {
+          const u = compile(clean(raw)), r = compile(e.ref);
+          for (const p of pts) if (!near(u.run({ [v]: p }), r.run({ [v]: p }), 1e-4)) return { ok: false, msg: 'La función no coincide con la solución. Revisa la constante con la condición inicial.' };
+          return { ok: true };
+        }
+        case 'anti': {
+          const u = compile(clean(raw, { stripC: true })), r = compile(e.ref);
+          const diffs = pts.map((p) => u.run({ [v]: p, C: 0, c: 0 }) - r.run({ [v]: p }));
+          if (diffs.some((d) => !isFinite(d))) return { ok: false, msg: 'Tu expresión no se puede evaluar en el dominio. Revisa paréntesis y funciones.' };
+          const scale = Math.max(1, ...pts.map((p) => Math.abs(r.run({ [v]: p }))));
+          const ok = diffs.every((d) => Math.abs(d - diffs[0]) <= 1e-6 * scale);
+          return ok ? { ok: true, msg: Math.abs(diffs[0]) > 1e-6 ? 'Correcto: difiere de la respuesta de referencia solo en una constante.' : '' } : { ok: false, msg: 'Al derivar tu resultado no se obtiene el integrando.' };
+        }
+        case 'ode': {
+          const u = compile(clean(raw)), R = compile(e.res);
+          const consts = e.consts || [];
+          const syms = new Set(); u.node.traverse((n) => { if (n.isSymbolNode) syms.add(n.name.toUpperCase()); });
+          const missing = consts.filter((c) => !syms.has(c.toUpperCase()));
+          if (missing.length) return { ok: false, msg: 'La solución general debe contener la(s) constante(s): ' + consts.join(', ') + '.' };
+          const combos = [[1.3, -0.7], [-2.1, 0.9], [0.6, 2.2]];
+          for (const cv of combos) {
+            const sc = {}; consts.forEach((c, i) => { sc[c] = cv[i]; });
+            const y = (t) => u.run(withCase({ ...sc, [v]: t }));
+            for (const p of pts) {
+              const yv = y(p);
+              const res = R.run({ x: p, y: yv, yp: d1(y, p), ypp: e.order === 2 ? d2(y, p) : 0 });
+              if (!isFinite(res) || Math.abs(res) > 1e-3 * Math.max(1, Math.abs(yv))) return { ok: false, msg: 'Al sustituir tu función en la ecuación no se cumple la igualdad.' };
+            }
+          }
+          for (const c of consts) {
+            const base = {}; consts.forEach((k) => { base[k] = 1; });
+            const alt = { ...base, [c]: 2.5 };
+            const changes = pts.some((p) => Math.abs(u.run(withCase({ ...base, [v]: p })) - u.run(withCase({ ...alt, [v]: p }))) > 1e-6);
+            if (!changes) return { ok: false, msg: 'La constante ' + c + ' no cambia la función: no es una solución general.' };
+          }
+          return { ok: true };
+        }
+        case 'pot': {
+          const u = compile(clean(raw, { stripC: true })), r = compile(e.ref);
+          const P = [[0.4, 0.7], [1.1, 0.3], [1.7, 1.4], [0.9, 2.1]];
+          const diffs = P.map(([x, y]) => u.run({ x, y, C: 0, c: 0 }) - r.run({ x, y }));
+          if (diffs.some((d) => !isFinite(d))) return { ok: false, msg: 'Tu expresión no se puede evaluar. Usa las variables x e y.' };
+          return diffs.every((d) => Math.abs(d - diffs[0]) < 1e-6 * Math.max(1, Math.abs(diffs[0])))
+            ? { ok: true } : { ok: false, msg: 'Tu F no cumple F_x = M y F_y = N.' };
+        }
+        case 'set': {
+          const parts = String(raw).split(/[;]|,(?!\d)|,\s+/).map((t) => t.trim()).filter(Boolean);
+          const vals = parts.map((p) => compile(clean(p, { decimalComma: false })).run({}));
+          const refs = e.answer.map((a) => compile(a).run({}));
+          if (vals.some((x) => !isFinite(x))) return { ok: false, msg: 'Algún valor no es un número.' };
+          if (vals.length !== refs.length) return { ok: false, msg: 'Se esperan ' + refs.length + ' valores.' };
+          const pool = refs.slice();
+          for (const x of vals) { const i = pool.findIndex((r) => near(x, r, 5e-4, e.tol || 0)); if (i < 0) return { ok: false, msg: 'Al menos un valor no es correcto.' }; pool.splice(i, 1); }
+          return { ok: true };
+        }
+      }
+    } catch (err) {
+      const m = String(err.message || err);
+      const sym = m.match(/Undefined symbol (\w+)/);
+      return { ok: false, msg: sym ? 'No reconozco "' + sym[1] + '". Usa * para multiplicar (x*e^x) y paréntesis en funciones: sin(x).' : 'No se pudo leer la expresión: revisa paréntesis y operadores.' };
+    }
+    return { ok: false, msg: 'Tipo de ejercicio desconocido.' };
+  }
+
+  // ---------- typesetting ----------
+  // Formulas are pre-rendered to SVG by tools/build.js; nothing to typeset at runtime.
+  function typeset() { return Promise.resolve(); }
+  function texPreview(target, raw, opts) {
+    target.innerHTML = '';
+    if (!raw.trim() || !hasMath) return;
+    try {
+      const tex = M.parse(clean(raw, opts)).toTex({ parenthesis: 'auto', implicit: 'hide' });
+      if (window.MathJax && MathJax.tex2svg) {
+        target.appendChild(document.createTextNode('Leo: '));
+        target.appendChild(MathJax.tex2svg(tex, { display: false }));
+      } else target.textContent = 'Leo: ' + M.parse(clean(raw, opts)).toString({ implicit: 'show' }).replace(/\*/g, '·').replace(/sqrt/g, '√').replace(/\bpi\b/g, 'π');
+    } catch (_) { target.innerHTML = '<span class="err">Expresión incompleta o con error de escritura</span>'; }
+  }
+
+  // ---------- counts ----------
+  const doneIn = (s) => s.exercises.filter((e) => progress[e.id]).length;
+  function refreshCounts() {
+    const total = ALL_EX.length, done = ALL_EX.filter(({ e }) => progress[e.id]).length;
+    $('#overall-count').textContent = done + ' / ' + total;
+    $('#overall-bar').style.width = (total ? (100 * done / total) : 0) + '%';
+    SESSIONS.forEach((s) => { const c = document.querySelector('[data-route="' + s.id + '"] .cnt'); if (c) c.textContent = doneIn(s) + '/' + s.exercises.length; });
+  }
+
+  // ---------- nav ----------
+  function buildNav() {
+    const nav = $('#nav');
+    const topics = [];
+    SESSIONS.forEach((s) => { let t = topics.find((x) => x.name === s.topic); if (!t) topics.push(t = { name: s.topic, list: [] }); t.list.push(s); });
+    topics.forEach((t) => {
+      const g = h('div', { class: 'navgroup' });
+      g.appendChild(h('h4', {}, t.name));
+      t.list.forEach((s) => {
+        const b = h('button', { class: 'navbtn', 'data-route': s.id }, '<span class="code">' + s.code + '</span><span class="lbl"></span><span class="cnt"></span>');
+        b.querySelector('.lbl').textContent = s.short || s.title;
+        g.appendChild(b);
+      });
+      nav.appendChild(g);
+    });
+    document.querySelectorAll('[data-route]').forEach((b) => b.addEventListener('click', () => { go(b.dataset.route); $('#side').dataset.open = 'false'; $('#menu-btn').setAttribute('aria-expanded', 'false'); }));
+    $('#brand').addEventListener('click', () => go('inicio'));
+    $('#brand-m').addEventListener('click', () => go('inicio'));
+    $('#menu-btn').addEventListener('click', () => { const s = $('#side'); const open = s.dataset.open !== 'true'; s.dataset.open = String(open); $('#menu-btn').setAttribute('aria-expanded', String(open)); });
+  }
+  function markNav(route) { document.querySelectorAll('[data-route]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.route === route))); }
+
+  // ---------- components ----------
+  const LEVEL = { 1: 'Básico', 2: 'Examen', 3: 'Reto' };
+  function exampleCard(ex, i) {
+    const card = h('article', { class: 'ex' });
+    card.appendChild(h('header', {}, '<h3>Ejemplo ' + (i + 1) + '. ' + ex.title + '</h3>'));
+    card.appendChild(h('div', { class: 'prose' }, ex.statement));
+    const steps = h('div', { class: 'steps' });
+    card.appendChild(steps);
+    const final = h('div', { class: 'final prose', hidden: '' }, ex.answer || '');
+    card.appendChild(final);
+    let shown = 0;
+    const row = h('div', { class: 'row' });
+    const next = h('button', { class: 'btn primary' }, 'Ver primer paso');
+    const all = h('button', { class: 'btn' }, 'Ver solución completa');
+    const reset = h('button', { class: 'btn', hidden: '' }, 'Ocultar pasos');
+    const upd = () => {
+      next.textContent = shown === 0 ? 'Ver primer paso' : 'Siguiente paso (' + (shown + 1) + ' de ' + ex.steps.length + ')';
+      const end = shown >= ex.steps.length;
+      next.hidden = end; all.hidden = end; reset.hidden = shown === 0;
+      final.hidden = !(end && ex.answer);
+    };
+    const showOne = () => { if (shown >= ex.steps.length) return; const st = h('div', { class: 'step prose' }, ex.steps[shown++]); steps.appendChild(st); typeset(st); upd(); if (shown >= ex.steps.length && ex.answer) typeset(final); };
+    next.addEventListener('click', showOne);
+    all.addEventListener('click', () => { while (shown < ex.steps.length) showOne(); });
+    reset.addEventListener('click', () => { steps.innerHTML = ''; shown = 0; upd(); });
+    row.append(next, all, reset);
+    card.appendChild(row);
+    upd();
+    return card;
+  }
+
+  function exerciseCard(e, num, onSolved, sessionLabel) {
+    const card = h('article', { class: 'ex', id: 'ex-' + e.id });
+    const pill = '<span class="pill l' + e.level + '">' + (LEVEL[e.level] || '') + '</span>';
+    const done = progress[e.id] ? '<span class="pill done">Resuelto</span>' : '';
+    card.appendChild(h('header', {}, '<h3>' + (sessionLabel ? sessionLabel + ' · ' : '') + 'Ejercicio ' + num + '</h3><div class="row">' + pill + '<span class="donepill">' + done + '</span></div>'));
+    card.appendChild(h('div', { class: 'prose' }, e.q));
+    const ans = h('div', { class: 'answer' });
+    const fb = h('div', { class: 'fb', hidden: '' });
+    let getRaw;
+    if (e.type === 'choice') {
+      const box = h('div', { class: 'choices', role: 'radiogroup' });
+      e.options.forEach((o, i) => {
+        const id = 'c-' + e.id + '-' + i;
+        const lab = h('label', { for: id });
+        lab.appendChild(h('input', { type: 'radio', name: 'c-' + e.id, id, value: String(i) }));
+        lab.appendChild(h('span', {}, o));
+        box.appendChild(lab);
+      });
+      ans.appendChild(box);
+      getRaw = () => { const r = box.querySelector('input:checked'); return r ? Number(r.value) : null; };
+    } else {
+      const id = 'in-' + e.id;
+      const hintTxt = { num: 'Escribe el valor (exacto o decimal)', anti: 'Escribe una primitiva; +C es opcional', func: 'Escribe la función y(x)', ode: 'Escribe la solución general con ' + (e.consts || ['C']).join(', '), pot: 'Escribe F(x, y)', set: 'Valores separados por punto y coma ;' }[e.type] || '';
+      ans.appendChild(h('label', { for: id }, e.label ? e.label : hintTxt));
+      const inrow = h('div', { class: 'in' });
+      const input = h('input', { type: 'text', id, autocomplete: 'off', spellcheck: 'false', placeholder: hintTxt });
+      const btn = h('button', { class: 'btn primary' }, 'Comprobar');
+      inrow.append(input, btn);
+      ans.appendChild(inrow);
+      const pv = h('div', { class: 'preview', 'aria-live': 'polite' });
+      if (e.type !== 'set') ans.appendChild(pv);
+      let t;
+      input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => texPreview(pv, input.value, { stripC: e.type === 'anti' || e.type === 'pot' }), 250); });
+      input.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') doCheck(); });
+      btn.addEventListener('click', () => doCheck());
+      getRaw = () => input.value;
+    }
+    card.appendChild(ans);
+    const row = h('div', { class: 'row' });
+    const checkBtn = h('button', { class: 'btn primary' }, 'Comprobar');
+    const hintBtn = h('button', { class: 'btn' }, 'Pista');
+    const solBtn = h('button', { class: 'btn' }, 'Ver solución paso a paso');
+    if (e.type === 'choice') row.appendChild(checkBtn);
+    row.append(hintBtn, solBtn);
+    card.appendChild(fb);
+    card.appendChild(row);
+    const hint = h('div', { class: 'reveal prose', hidden: '' }, '<div class="tag">Pista</div>' + e.hint);
+    const sol = h('div', { class: 'reveal prose', hidden: '' }, '<div class="tag">Solución</div>' + e.solution);
+    card.append(hint, sol);
+    checkBtn.addEventListener('click', () => doCheck());
+    hintBtn.addEventListener('click', () => { hint.hidden = !hint.hidden; if (!hint.hidden) typeset(hint); });
+    solBtn.addEventListener('click', () => { sol.hidden = !sol.hidden; solBtn.textContent = sol.hidden ? 'Ver solución paso a paso' : 'Ocultar solución'; if (!sol.hidden) typeset(sol); });
+
+    function doCheck() {
+      const raw = getRaw();
+      let res;
+      if (e.type === 'choice') res = raw === null ? { ok: false, msg: 'Elige una opción.' } : (raw === e.correct ? { ok: true } : { ok: false, msg: 'Esa opción no es correcta. Piensa en la pista.' });
+      else if (!String(raw).trim()) res = { ok: false, msg: 'Escribe una respuesta primero.' };
+      else res = check(e, raw);
+      fb.hidden = false;
+      fb.className = 'fb ' + (res.ok ? 'ok' : 'bad');
+      fb.textContent = res.ok ? ('¡Correcto! ' + (res.msg || '')) : res.msg;
+      if (res.ok) {
+        if (!progress[e.id]) { progress[e.id] = true; save(); refreshCounts(); }
+        card.querySelector('.donepill').innerHTML = '<span class="pill done">Resuelto</span>';
+        onSolved && onSolved(e, true);
+      } else onSolved && onSolved(e, false);
+    }
+    return card;
+  }
+
+  // ---------- views ----------
+  const view = $('#view');
+  function head(eyebrow, title, lede) {
+    const f = document.createDocumentFragment();
+    f.appendChild(h('div', { class: 'eyebrow' }, eyebrow));
+    f.appendChild(h('h1', { class: 'title' }, title));
+    if (lede) f.appendChild(h('p', { class: 'lede' }, lede));
+    return f;
+  }
+
+  function renderHome() {
+    view.appendChild(head('Matemática III · ICI · 2do año', 'Todo el programa, paso a paso', 'Teoría explicada con detalle, ejemplos que se resuelven un paso a la vez y ejercicios que se corrigen solos. Sigue el orden de las clases del P1 2026–2027 o salta directo a lo que te cueste más.'));
+    const cards = h('div', { class: 'cards' });
+    SESSIONS.forEach((s) => {
+      const c = h('button', { class: 'card' }, '<span class="code">' + s.code + ' · ' + s.topic.replace(/^Tema (\w+).*/, 'Tema $1') + '</span><b></b><small>' + s.theory.length + ' apartados · ' + s.examples.length + ' ejemplos · ' + doneIn(s) + '/' + s.exercises.length + ' ejercicios</small>');
+      c.querySelector('b').textContent = s.title;
+      c.addEventListener('click', () => go(s.id));
+      cards.appendChild(c);
+    });
+    if (!SESSIONS.length) cards.appendChild(h('p', { class: 'loading' }, 'No se encontró el contenido. Comprueba que la carpeta content/ esté junto a este archivo.'));
+    view.appendChild(cards);
+    const p = h('section', { class: 'panel prose' });
+    p.innerHTML = '<h2>Cómo estudiar con esta página</h2><ol>' +
+      '<li><strong>Lee la teoría</strong> de la sesión. Los recuadros azules son las fórmulas que debes memorizar; todos se reúnen en el <em>Formulario</em>.</li>' +
+      '<li><strong>Resuelve los ejemplos</strong> tú primero y revela un paso a la vez para comparar.</li>' +
+      '<li><strong>Haz los ejercicios</strong>: escribe la respuesta y pulsa Comprobar. Usa la pista antes de mirar la solución.</li>' +
+      '<li>Al final, haz el <strong>Simulacro</strong>: ejercicios al azar de todo el programa.</li></ol>' +
+      '<div class="note">El P1 2026–2027 eliminó el método de Euler y las EDO lineales de primer orden. El método de Euler aparece en la sesión de introducción a las ED marcado como complemento.</div>';
+    view.appendChild(p);
+  }
+
+  function renderSession(s, tabWanted) {
+    view.appendChild(head(s.code + ' · ' + s.topic, s.title));
+    if (s.goals && s.goals.length) {
+      const g = h('section', { class: 'panel prose' }, '<h2>Lo que debes saber hacer</h2><ul class="goals">' + s.goals.map((x) => '<li>' + x + '</li>').join('') + '</ul>');
+      view.appendChild(g);
+    }
+    const tabs = h('div', { class: 'tabs', role: 'tablist' });
+    const defs = [['teoria', 'Teoría', s.theory.length], ['ejemplos', 'Ejemplos resueltos', s.examples.length], ['ejercicios', 'Ejercicios', s.exercises.length]];
+    const body = h('div', { class: 'stack' });
+    const tabBtns = defs.map(([k, label, n]) => {
+      const b = h('button', { class: 'tab', role: 'tab', 'aria-selected': 'false', id: 'tab-' + k }, label + '<span class="n">' + n + '</span>');
+      b.addEventListener('click', () => show(k, true));
+      tabs.appendChild(b);
+      return b;
+    });
+    view.append(tabs, body);
+    function show(k, push) {
+      tabBtns.forEach((b, i) => b.setAttribute('aria-selected', String(defs[i][0] === k)));
+      body.innerHTML = '';
+      if (k === 'teoria') {
+        s.theory.forEach((t) => body.appendChild(h('section', { class: 'panel prose' }, '<h2>' + t.h + '</h2>' + t.html)));
+        const nx = h('div', { class: 'row' }); const b = h('button', { class: 'btn primary' }, 'Seguir con los ejemplos →'); b.addEventListener('click', () => { show('ejemplos', true); window.scrollTo(0, tabs.offsetTop - 10); }); nx.appendChild(b); body.appendChild(nx);
+      } else if (k === 'ejemplos') {
+        s.examples.forEach((ex, i) => body.appendChild(exampleCard(ex, i)));
+        const nx = h('div', { class: 'row' }); const b = h('button', { class: 'btn primary' }, 'Ir a los ejercicios →'); b.addEventListener('click', () => { show('ejercicios', true); window.scrollTo(0, tabs.offsetTop - 10); }); nx.appendChild(b); body.appendChild(nx);
+      } else {
+        let filter = prefGet('filter', 'all');
+        const fl = h('div', { class: 'filters' }, '<span>Mostrar:</span>');
+        const list = h('div', { class: 'stack' });
+        const opts = [['all', 'Todos'], ['1', 'Básico'], ['2', 'Examen'], ['3', 'Reto'], ['todo', 'Sin resolver']];
+        const chips = opts.map(([v, l]) => { const c = h('button', { class: 'chip', 'aria-pressed': String(v === filter) }, l); c.addEventListener('click', () => { filter = v; prefSet('filter', v); chips.forEach((x, i) => x.setAttribute('aria-pressed', String(opts[i][0] === v))); fill(); }); fl.appendChild(c); return c; });
+        body.append(fl, list, h('p', { class: 'syntax lede' }, 'Escritura: <code>x^2</code> <code>sqrt(x)</code> <code>e^(2x)</code> <code>ln(x)</code> <code>sin(x)</code> <code>pi</code> <code>3/4</code>. Multiplica con <code>*</code> entre letras: <code>x*e^x</code>. <a href="#ayuda">Guía completa</a>.'));
+        function fill() {
+          list.innerHTML = '';
+          s.exercises.forEach((e, i) => {
+            if (filter === 'todo' && progress[e.id]) return;
+            if (['1', '2', '3'].includes(filter) && String(e.level) !== filter) return;
+            list.appendChild(exerciseCard(e, i + 1));
+          });
+          if (!list.children.length) list.appendChild(h('p', { class: 'lede' }, 'No hay ejercicios con ese filtro.'));
+          typeset(list);
+        }
+        fill();
+      }
+      if (k !== 'ejercicios') typeset(body);
+      if (push) history.replaceState(null, '', '#' + s.id + (k === 'teoria' ? '' : '-' + k));
+    }
+    show(tabWanted || 'teoria', false);
+  }
+
+  function renderFormulario() {
+    view.appendChild(head('Repaso', 'Formulario', 'Todas las fórmulas clave de la teoría, en orden de clases. Repásalo la noche antes del examen.'));
+    SESSIONS.forEach((s) => {
+      const tmp = h('div', {}, s.theory.map((t) => t.html).join(''));
+      const keys = tmp.querySelectorAll('.key');
+      if (!keys.length) return;
+      const p = h('section', { class: 'panel prose' }, '<h2>' + s.code + ' · ' + s.title + '</h2>');
+      keys.forEach((k) => p.appendChild(k.cloneNode(true)));
+      view.appendChild(p);
+    });
+    typeset(view);
+  }
+
+  function renderSimulacro() {
+    view.appendChild(head('Repaso', 'Simulacro de examen', 'Un ejercicio al azar de cada sesión, del nivel Examen o Reto. Resuélvelos sin mirar la solución y revisa tu puntuación al final.'));
+    const bar = h('div', { class: 'row' });
+    const again = h('button', { class: 'btn primary' }, 'Nuevo simulacro');
+    const score = h('div', { class: 'panel row', style: 'justify-content:space-between' });
+    bar.appendChild(again);
+    const list = h('div', { class: 'stack' });
+    view.append(score, bar, list);
+    let result = {};
+    function build() {
+      list.innerHTML = ''; result = {};
+      const picks = SESSIONS.map((s) => {
+        const pool = s.exercises.filter((e) => e.level >= 2);
+        const src = pool.length ? pool : s.exercises;
+        return src.length ? { s, e: src[Math.floor(Math.random() * src.length)] } : null;
+      }).filter(Boolean);
+      picks.forEach(({ s, e }, i) => list.appendChild(exerciseCard(e, i + 1, (ex, ok) => { if (!(ex.id in result) || ok) result[ex.id] = result[ex.id] || ok; upd(); }, s.code)));
+      const upd = () => { const ok = Object.values(result).filter(Boolean).length; score.innerHTML = '<div><div class="eyebrow">Puntuación</div><div class="score">' + ok + ' / ' + picks.length + '</div></div><div class="lede">Cuenta el primer acierto de cada ejercicio.</div>'; };
+      upd();
+      typeset(list);
+    }
+    again.addEventListener('click', () => { build(); window.scrollTo(0, 0); });
+    build();
+  }
+
+  function renderAyuda() {
+    view.appendChild(head('Repaso', 'Cómo escribir respuestas', 'El verificador entiende notación de calculadora. Debajo de la casilla ves cómo interpretó lo que escribiste.'));
+    const p = h('section', { class: 'panel prose' });
+    p.innerHTML = '<table class="tbl"><thead><tr><th>Quieres escribir</th><th>Escribe</th></tr></thead><tbody>' +
+      [['x²', 'x^2'], ['√(x+1)', 'sqrt(x+1)'], ['∛x', 'x^(1/3)'], ['e²ˣ', 'e^(2x) o exp(2x)'], ['ln x', 'ln(x)'], ['sen x, cos x', 'sin(x) o sen(x), cos(x)'], ['sen² x', 'sin(x)^2'], ['arctan x', 'arctan(x) o atan(x)'], ['π', 'pi'], ['3 / 4 (fracción)', '3/4'], ['(x+1) / (x−1)', '(x+1)/(x-1)'], ['x·eˣ', 'x*e^x'], ['C₁eˣ + C₂e⁻ˣ', 'C1*e^x + C2*e^(-x)']]
+        .map(([a, b]) => '<tr><td>' + a + '</td><td><code>' + b + '</code></td></tr>').join('') + '</tbody></table>' +
+      '<h3>Qué acepta cada tipo de ejercicio</h3><ul>' +
+      '<li><strong>Valor numérico</strong>: exacto (<code>9pi/4</code>, <code>2*e^3-1</code>) o decimal con 3–4 cifras. Puedes usar coma o punto decimal.</li>' +
+      '<li><strong>Integral indefinida</strong>: cualquier primitiva correcta. Si difiere de la solución por una constante también es correcta; el <code>+C</code> es opcional.</li>' +
+      '<li><strong>Solución general de una ED</strong>: debe contener las constantes indicadas (<code>C</code> o <code>C1</code>, <code>C2</code>). Se comprueba sustituyendo en la ecuación, así que cualquier forma equivalente vale.</li>' +
+      '<li><strong>Solución particular</strong>: la función concreta, sin constantes.</li>' +
+      '<li><strong>Varios valores</strong>: sepáralos con punto y coma, en cualquier orden: <code>-1; 1/2</code>.</li>' +
+      '<li>Puedes empezar con <code>y =</code> o <code>F =</code>; se ignora.</li></ul>' +
+      '<div class="warn">Escribir <code>xe^x</code> sin asterisco: se lee como una variable llamada "xe". Escribe <code>x*e^x</code>. Lo mismo con <code>sin x</code>: usa <code>sin(x)</code>.</div>';
+    view.appendChild(p);
+    typeset(p);
+  }
+
+  function go(route) { location.hash = route; }
+  function render() {
+    const raw = (location.hash || '#inicio').slice(1);
+    const [id, tab] = raw.split('-');
+    view.innerHTML = '';
+    const s = SESSIONS.find((x) => x.id === id);
+    markNav(s ? s.id : id);
+    if (s) renderSession(s, tab);
+    else if (id === 'formulario') renderFormulario();
+    else if (id === 'simulacro') renderSimulacro();
+    else if (id === 'ayuda') renderAyuda();
+    else { markNav('inicio'); renderHome(); }
+    refreshCounts();
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', render);
+  buildNav();
+  render();
+})();
+</script>
